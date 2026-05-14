@@ -1,4 +1,4 @@
-import z from 'zod'
+import { z } from "zod"
 
 export const SignupInput = z.object({
   email: z.string().email(),
@@ -23,10 +23,10 @@ export const updateBlogInput = z.object({
 })
 
 // for showing zod on frontend we need to use type inference in zod
-export type SignupInput = z.infer<typeof SignupInput>
-export type createBlogInputs = z.infer<typeof createBlogInputs>
-export type updateBlogInput = z.infer<typeof updateBlogInput>
-export type SignInInput = z.infer<typeof SignInInput>
+export type SignupInputInfer = z.infer<typeof SignupInput>
+export type createBlogInputsInfer = z.infer<typeof createBlogInputs>
+export type updateBlogInputInfer = z.infer<typeof updateBlogInput>
+export type SignInInputInfer = z.infer<typeof SignInInput>
 
 // lekin dikkat toh isma bhi hai how i can import this zod type into backend (as cloudflare says i not understand outside the backend folder)
 // use monorepo for this problem    |    publish your zod to npm then use it in your project
