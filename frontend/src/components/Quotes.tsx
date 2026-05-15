@@ -8,21 +8,15 @@ export const Quotes = () => {
                     “
                 </div>
 
-                <p className="text-4xl font-bold leading-[1.4] text-slate-900 tracking-tight">
-                    The customer service I received was exceptional.
-                    The support team went above and beyond to address
-                    my concerns.
+                <p className="text-4xl font-extrabold text-slate-900 tracking-tight">
+                    Your words can inspire people, spark new ideas,
+                    and leave an impact on readers across the world.
                 </p>
 
-                <div className="mt-10 border-l-4 border-slate-300 pl-5">
-                    <h3 className="text-xl font-semibold text-slate-900">
-                        Jules Winnfield
-                    </h3>
-
-                    <p className="text-slate-500 text-sm mt-1">
-                        CEO • Acme Corp
-                    </p>
-                </div>
+                <p className="text-slate-600 text-lg leading-8 mt-8">
+                    Build your audience, share your ideas, and turn your thoughts
+                    into impactful content on your modern blogging platform.
+                </p>
 
             </div>
 
