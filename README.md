@@ -16,6 +16,7 @@ A modern full-stack blogging platform built with cutting-edge technologies.
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=jsonwebtokens)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM_Published-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 
 ---
 
@@ -30,6 +31,13 @@ A modern full-stack blogging platform built with cutting-edge technologies.
 - Neon PostgreSQL Database
 - Fully Responsive UI
 - Fast Edge API Performance
+- Shared Common Package Published on NPM
+
+---
+
+## 📦 Packages
+
+Common package published on NPM for shared types and validations.
 
 ---
 
