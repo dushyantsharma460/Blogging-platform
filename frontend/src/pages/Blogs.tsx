@@ -5,6 +5,7 @@ import { useBlogs } from "../hooks"
 export const Blogs = () => {
 
     const { loading, blogs } = useBlogs();
+    const date = new Date();
 
     if (loading) {
         return (
@@ -76,7 +77,7 @@ export const Blogs = () => {
                         authorname={blog.author.name || "Anonymous"}
                         title={blog.title}
                         content={blog.content}
-                        publishedDate={"15 May"}
+                        publishedDate={date.toLocaleDateString()}
                     />
                 ))}
 

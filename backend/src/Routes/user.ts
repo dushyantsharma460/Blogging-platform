@@ -1,8 +1,7 @@
 import { Hono } from 'hono'
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
-import { sign } from 'hono/jwt'
-// import { SignupInput } from '../../../common/src/index'
+import { sign , verify } from 'hono/jwt'
 import { SignupInput, SignInInput } from '@dushyantsharma460/medium-common'
 
 const userRouter = new Hono<{
@@ -104,6 +103,49 @@ userRouter.post('/signin', async (c) => {
     return c.json({
       error: String(e)
     }, 500)
+  }
+})
+
+
+userRouter.get('/me', async (c) => {
+
+  try {
+
+    const authHeader = c.req.header("Authorization") || "";
+
+    const token = authHeader.split(" ")[1];
+
+    if (!token) {
+      return c.json({
+        error: "No token provided"
+      }, 401)
+    }
+
+    const decoded = await verify(token, c.env.JWT_SECRET, "HS256");
+
+    const prisma = new PrismaClient({
+      accelerateUrl: c.env.DATABASE_URL
+    }).$extends(withAccelerate());
+
+    const user = await prisma.user.findUnique({
+      where: {
+        id: decoded.id as string
+      },
+      select: {
+        name: true,
+        email: true
+      }
+    });
+
+    return c.json(user);
+
+  } catch (e) {
+
+    console.log("ME ERROR:", e);
+
+    return c.json({
+      error: "Invalid token"
+    }, 403)
   }
 })
 

@@ -11,7 +11,7 @@ export interface Blog {
     }
 }
 
-export const useBlog = ({id} : {id: string}) => {
+export const useBlog = ({ id }: { id: string }) => {
     const [loading, setLoading] = useState(true);
 
     const [blog, setBlog] = useState<Blog>();
@@ -26,7 +26,11 @@ export const useBlog = ({id} : {id: string}) => {
                 setBlog(response.data.blog);
                 setLoading(false);
             })
-    } , [id])
+
+            .catch((error) => {
+                alert(error);
+            })
+    }, [id])
 
     return {
         loading,
@@ -49,6 +53,9 @@ export const useBlogs = () => {
             .then(response => {
                 setBlogs(response.data.blogs);
                 setLoading(false);
+            })
+            .catch((error) => {
+                alert(error);
             })
     }, [])
 
